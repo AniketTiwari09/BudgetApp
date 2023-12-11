@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import axios from 'axios';
 
 const ChartComponent = () => {
   const [lineChartData, setLineChartData] = useState([10, 20, 30, 40, 60, 70, 80]);
@@ -17,6 +18,8 @@ const ChartComponent = () => {
   const [pieChartLabels, setPieChartLabels] = useState([
     '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
   ]);
+
+
 
   const lineChartRef = useRef(null);
   const barChartRef = useRef(null);
@@ -126,18 +129,24 @@ const ChartComponent = () => {
     const newData = [...lineChartData];
     newData[index] = parseInt(e.target.value, 10);
     setLineChartData(newData);
+
+    sendDataToBackend({ lineChartData: newData });
   };
 
   const handleBarDataChange = (e, index) => {
     const newData = [...barChartData];
     newData[index] = parseInt(e.target.value, 10);
     setBarChartData(newData);
+
+    sendDataToBackend({ barChartData: newData });
   };
 
   const handlePieDataChange = (e, index) => {
     const newData = [...pieChartData];
     newData[index] = parseInt(e.target.value, 10);
     setPieChartData(newData);
+
+    sendDataToBackend({ pieChartData: newData });
   };
 
   const handleLineLabelChange = (e, index) => {
@@ -157,6 +166,21 @@ const ChartComponent = () => {
     newLabels[index] = e.target.value;
     setPieChartLabels(newLabels);
   };
+
+  const sendDataToBackend = (data) => {
+    axios.post('http://localhost:3000/chartData', data)
+      .then(response => {
+        console.log(response.data); // Log the response from the backend
+        // Optionally handle success (e.g., show a success message)
+      })
+      .catch(error => {
+        console.error('Error sending chart data:', error);
+        // Optionally handle errors (e.g., show an error message)
+      });
+  };
+
+
+  
 
   return (
     <div>

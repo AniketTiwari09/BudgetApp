@@ -102,6 +102,16 @@ app.get('/refreshToken', (req, res) => {
   }
 });
 
+
+app.post('/chartData', (req, res) => {
+  const { lineChartData, barChartData, pieChartData } = req.body;
+
+  // Store/process the received data in your backend (e.g., update a database)
+  // ...
+
+  res.status(200).json({ message: 'Chart data received successfully' });
+});
+
 // Logout route (optional)
 app.post('/logout', (req, res) => {
   // Implementation of logout logic

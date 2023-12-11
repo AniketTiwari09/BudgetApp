@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Token from './Token';
 
@@ -34,7 +35,24 @@ const Dashboard  = () => {
     navigate('/'); // Replace with the route to your homepage
   };
 
+  const fetchChartDataFromBackend = () => {
+    axios.get('http://localhost:3000/chartData')
+      .then(response => {
+        const { lineChartData, barChartData, pieChartData } = response.data;
+        setLineChartData(lineChartData);
+        setBarChartData(barChartData);
+        setPieChartData(pieChartData);
+      })
+      .catch(error => {
+        console.error('Error fetching chart data:', error);
+        // Optionally handle errors (e.g., show an error message)
+      });
+  };
+
   useEffect(() => {
+
+    fetchChartDataFromBackend();
+
     let lineChart = null;
     let barChart = null;
     let pieChart = null;
