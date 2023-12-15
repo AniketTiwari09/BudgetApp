@@ -9,7 +9,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://159.203.116.79:3000/signup', {
+      const response = await axios.post('http://159.203.116.79:3000/signup', {
         username,
         password,
       });
