@@ -168,7 +168,7 @@ const ChartComponent = () => {
   };
 
   const sendDataToBackend = (data) => {
-    axios.post('http://159.203.116.79:3000/chartData', data)
+    axios.post('https://159.203.116.79:3000/chartData', data)
       .then(response => {
         console.log(response.data); // Log the response from the backend
         // Optionally handle success (e.g., show a success message)

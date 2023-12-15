@@ -9,10 +9,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://159.203.116.79:3000/login', {
-        username,
-        password,
-      });
+      const response = await axios.post('https://159.203.116.79:3000/login', {
+      username,
+      password,
+    });
 
       // Assuming the backend sends a success status and a message upon successful login
       if (response.status === 200 && response.data.message === 'Login successful') {

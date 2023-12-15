@@ -36,7 +36,7 @@ const Dashboard  = () => {
   };
 
   const fetchChartDataFromBackend = () => {
-    axios.get('http://159.203.116.79:3000/chartData')
+    axios.get('https://159.203.116.79:3000/chartData')
       .then(response => {
         const { lineChartData, barChartData, pieChartData } = response.data;
         setLineChartData(lineChartData);
