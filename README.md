@@ -8,11 +8,14 @@ Expense Category Creation: Create and manage custom expense categories for a per
 Monthly Expenditure Tracking: Utilizes Chart.js and D3.js for dynamic chart rendering to track and visualize monthly expenditures.
 Secure User Authentication: Ensures data privacy through a robust user authentication system.
 Seamless Integration: Monthly expenditure charts are seamlessly integrated to provide an intuitive financial management experience.
-Technologies Used
-Frontend: React.js
+
+Technologies Used Frontend: React.js
 Backend: Express, Node.js, SQL
+
 Chart Rendering: Chart.js, D3.js
+
 Testing: Cypress, Postman
+
 Getting Started
 To run the Budget App locally, follow these steps:
 
