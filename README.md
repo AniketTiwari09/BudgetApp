@@ -23,7 +23,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/budget-app.git
+git clone https://github.com/AniketTiwari09/BudgetApp
 Navigate to the project directory:
 
 bash
